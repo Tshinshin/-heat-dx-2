@@ -353,10 +353,9 @@ async function sendMsg(){
   msgs.scrollTop=msgs.scrollHeight;
   
   try{
-    const res=await fetch('https://script.google.com/macros/s/AKfycbybxRylwwC5WdpV_P0Y6ReRO_zH8e7oDd4zFV9i5Xebd1k3Vo9Nfq7UMJp5dGp4Wwr2/exec',{
+    const res=await fetch('https://heat-dx-proxy.takahashi-76e.workers.dev',{
       method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'text/plain'},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         model:'claude-sonnet-4-20250514',
         max_tokens:400,
