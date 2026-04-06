@@ -367,7 +367,7 @@ async function sendMsg(){
     const reply=data.content?.[0]?.text||'エラーが発生しました。';
     botDiv.innerHTML='<span class="en">HEAT DX AI</span>'+reply;
   }catch(e){
-    botDiv.innerHTML='<span class="en">HEAT DX AI</span>通信エラーが発生しました。';
+    botDiv.innerHTML='<span class="en">HEAT DX AI</span>'+e.message;
   }
   msgs.scrollTop=msgs.scrollHeight;
 }
