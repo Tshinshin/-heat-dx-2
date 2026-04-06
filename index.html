@@ -355,7 +355,8 @@ async function sendMsg(){
   try{
     const res=await fetch('https://script.google.com/macros/s/AKfycbybxRylwwC5WdpV_P0Y6ReRO_zH8e7oDd4zFV9i5Xebd1k3Vo9Nfq7UMJp5dGp4Wwr2/exec',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
       body:JSON.stringify({
         model:'claude-sonnet-4-20250514',
         max_tokens:400,
