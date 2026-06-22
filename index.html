@@ -57,12 +57,17 @@ section{padding:5rem 2rem}
 .sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.1;margin-bottom:1rem}
 .sec-desc{color:var(--muted);max-width:560px;line-height:1.9;margin-bottom:3rem}
 
-/* HEATEYE HERO */
-.heateye-hero{background:var(--bg2);border:1px solid var(--border);padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
+/* SERVICE HERO (shared) */
+.svc-hero{background:var(--bg2);border:1px solid var(--border);padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
 .heateye-hero::before{content:'HEAT EYE';font-family:'Barlow Condensed',sans-serif;font-size:120px;font-weight:700;color:rgba(0,200,160,0.04);position:absolute;right:-20px;bottom:-20px;line-height:1;pointer-events:none}
+.heatguard-hero::before{content:'HEAT GUARD';font-family:'Barlow Condensed',sans-serif;font-size:80px;font-weight:700;color:rgba(0,136,255,0.04);position:absolute;right:-20px;bottom:-20px;line-height:1;pointer-events:none}
+.heatpilot-hero::before{content:'HEAT PILOT';font-family:'Barlow Condensed',sans-serif;font-size:80px;font-weight:700;color:rgba(0,200,160,0.04);position:absolute;right:-20px;bottom:-20px;line-height:1;pointer-events:none}
 .heateye-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--accent);background:rgba(0,200,160,0.1);border:1px solid rgba(0,200,160,0.3);padding:3px 10px;display:inline-block;margin-bottom:1rem}
+.heatguard-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--accent2);background:rgba(0,136,255,0.1);border:1px solid rgba(0,136,255,0.3);padding:3px 10px;display:inline-block;margin-bottom:1rem}
+.heatpilot-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--accent);background:rgba(0,200,160,0.1);border:1px solid rgba(0,200,160,0.3);padding:3px 10px;display:inline-block;margin-bottom:1rem}
 .heateye-title{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:700;margin-bottom:.75rem;line-height:1.1}
 .heateye-sub{color:var(--muted);font-size:14px;line-height:1.9;max-width:520px}
+.feat-item.blue .feat-icon{border-color:var(--accent2);color:var(--accent2)}
 
 /* FLOW */
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:2rem 0}
@@ -103,13 +108,13 @@ section{padding:5rem 2rem}
 #cta{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:5rem 2rem}
 .cta-title{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:700;margin-bottom:1rem}
 .cta-sub{color:var(--muted);margin-bottom:2rem}
-.cta-form{max-width:480px;margin:0 auto;text-align:left}
-.cta-form input,.cta-form textarea{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px 14px;font-size:14px;font-family:'Noto Sans JP',sans-serif;margin-bottom:12px;outline:none;transition:border-color .2s}
-.cta-form input:focus,.cta-form textarea:focus{border-color:var(--accent)}
-.cta-form textarea{height:120px;resize:vertical}
-.cta-form-msg{font-size:13px;margin-top:8px;min-height:20px}
-.cta-form-msg.ok{color:var(--accent)}
-.cta-form-msg.err{color:#ff6b6b}
+
+/* COMPANY */
+#company{padding:4rem 2rem}
+.company-table{width:100%;max-width:640px;margin:2rem auto 0;border-collapse:collapse}
+.company-table tr{border-bottom:1px solid var(--border)}
+.company-table th{padding:.75rem 1rem;text-align:left;font-size:11px;letter-spacing:1px;color:var(--muted);font-weight:400;width:36%;font-family:'Barlow Condensed',sans-serif}
+.company-table td{padding:.75rem 1rem;font-size:13px;color:var(--text)}
 
 /* FOOTER */
 footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
@@ -141,7 +146,10 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
   <div class="nav-logo en">HEAT DX</div>
   <div class="nav-links">
     <a href="#heateye" class="active">Heat Eye</a>
+    <a href="#heatguard">Heat Guard</a>
+    <a href="#heatpilot">Heat Pilot</a>
     <a href="#services">サービス一覧</a>
+    <a href="#company">会社概要</a>
     <a href="#cta">お問合せ</a>
   </div>
 </nav>
@@ -152,7 +160,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
   <div class="container hero-content">
     <div class="hero-badge en">HEAT EQUIPMENT × AI</div>
     <h1 class="hero-title en">HEAT DX<br><span class="dim">PLATFORM</span></h1>
-    <p class="hero-sub">熱設備の運転・監視・保全をAIで自動化する。</p>
+    <p class="hero-sub">熱設備の運転・監視・保全をAIで完全自動化。<br>現場のデータを資産に変える、新しいDXの形。</p>
     <a href="#heateye" class="btn-primary en">HEAT EYE を見る</a>
     <a href="#services" class="btn-outline en">ALL SERVICES</a>
   </div>
@@ -162,10 +170,11 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
 <section id="heateye" style="background:var(--bg)">
   <div class="container">
     <div class="sec-label en">FLAGSHIP SERVICE</div>
-    <div class="heateye-hero">
-      <div class="heateye-tag en">NEW</div>
+    <div class="svc-hero heateye-hero">
+      <div class="heateye-tag en">OES OPERATIONAL</div>
       <h2 class="heateye-title en">HEAT EYE</h2>
-      <p class="heateye-sub">POEカメラと画像AIで、熱設備の旬報・日報を自動生成。<br>有線LANで給電・通信を同時解決——<strong style="color:var(--accent)">電池管理不要、WiFi不要、有線による確実な画像送信。</strong><br>担当者が毎日行っていた目視確認・記録作業をゼロに。<br>設置から最短1日で稼働開始。</p>    </div>
+      <p class="heateye-sub">POEカメラと画像AIで、熱設備の旬報・日報を自動生成。<br>担当者が毎日行っていた目視確認・記録作業をゼロに。<br>設置から最短1日で稼働開始。</p>
+    </div>
 
     <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin-bottom:1.5rem">— HOW IT WORKS</h3>
     <div class="flow">
@@ -200,11 +209,6 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
 
     <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin:2.5rem 0 1.5rem">— FEATURES</h3>
     <div class="feat-grid">
-      <div class="feat-item" style="border:2px solid var(--accent)">
-        <div class="feat-icon en">⚡</div>
-        <div class="feat-name en">POE — NO BATTERY</div>
-        <div class="feat-desc">有線LANで給電・通信を同時解決。電池交換不要、WiFi切断ゼロ。安定した画像送信を24時間保証。</div>
-      </div>
       <div class="feat-item">
         <div class="feat-icon en">◎</div>
         <div class="feat-name en">AUTO RECOGNITION</div>
@@ -235,8 +239,6 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
         <div class="feat-name en">LOW COST</div>
         <div class="feat-desc">月額サブスクモデル。初期費用を抑え、小規模施設から導入可能</div>
       </div>
-      <div class="feat-item"></div>
-      <div class="feat-item"></div>
     </div>
 
     <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin:2.5rem 0 1.5rem">— BEFORE / AFTER</h3>
@@ -269,34 +271,264 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
   </div>
 </section>
 
+<!-- HEATGUARD MAIN -->
+<section id="heatguard" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="sec-label en">CBM / PREDICTIVE MAINTENANCE</div>
+    <div class="svc-hero heatguard-hero">
+      <div class="heatguard-tag en">OES OPERATIONAL</div>
+      <h2 class="heateye-title en" style="color:var(--accent2)">HEAT GUARD</h2>
+      <p class="heateye-sub">M5StackとCONTEC DAQで振動・電流を常時監視。<br>毎時自動集計・クラウド可視化で、故障の予兆を見逃さない。<br>大阪エネルギーサービス（OES）にて実稼働中。</p>
+    </div>
+
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin-bottom:1.5rem">— HOW IT WORKS</h3>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num en">01</div>
+        <span class="flow-icon">📡</span>
+        <div class="flow-name">センサー取付</div>
+        <div class="flow-detail">M5Stack CoreS3＋IIS3DWB加速度センサー、CONTEC DAQ電流センサーをモーターに設置</div>
+        <div class="flow-arrow">›</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">02</div>
+        <span class="flow-icon">⚙️</span>
+        <div class="flow-name">データ収集</div>
+        <div class="flow-detail">振動・三相電流をリアルタイム取得。S3へ自動アップロード</div>
+        <div class="flow-arrow">›</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">03</div>
+        <span class="flow-icon">🤖</span>
+        <div class="flow-name">クラウド解析</div>
+        <div class="flow-detail">AWS LambdaがFFT解析・電流不平衡評価・INV停止リスク判定を毎時実行</div>
+        <div class="flow-arrow">›</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">04</div>
+        <span class="flow-icon">📊</span>
+        <div class="flow-name">ダッシュボード</div>
+        <div class="flow-detail">AWS Amplifyで自動更新。振動トレンド・リスクスコアを一画面で確認</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin:2.5rem 0 1.5rem">— FEATURES</h3>
+    <div class="feat-grid">
+      <div class="feat-item blue">
+        <div class="feat-icon en">〜</div>
+        <div class="feat-name en">FFT VIBRATION</div>
+        <div class="feat-desc">振動波形をFFT解析。軸受・ベルト・不平衡など故障モード別の周波数成分を自動抽出</div>
+      </div>
+      <div class="feat-item blue">
+        <div class="feat-icon en">⚡</div>
+        <div class="feat-name en">CURRENT MONITOR</div>
+        <div class="feat-desc">三相電流を常時計測。相間不平衡・波形変化からモーター巻線異常を早期検知</div>
+      </div>
+      <div class="feat-item blue">
+        <div class="feat-icon en">⚠</div>
+        <div class="feat-name en">INV RISK SCORE</div>
+        <div class="feat-desc">インバータ停止リスクを毎日スコアリング。担当者が判断しやすい形で可視化</div>
+      </div>
+      <div class="feat-item blue">
+        <div class="feat-icon en">🔄</div>
+        <div class="feat-name en">HOURLY AUTO</div>
+        <div class="feat-desc">EventBridgeで毎時自動実行。人手なしでダッシュボードが常に最新状態を保つ</div>
+      </div>
+      <div class="feat-item blue">
+        <div class="feat-icon en">☁</div>
+        <div class="feat-name en">CLOUD STORAGE</div>
+        <div class="feat-desc">AWS S3にCSVを蓄積。過去データとのトレンド比較・劣化進行の把握が容易</div>
+      </div>
+      <div class="feat-item blue">
+        <div class="feat-icon en">◎</div>
+        <div class="feat-name en">ADD-ON INSTALL</div>
+        <div class="feat-desc">既設設備に貼り付けるだけ。制御システムへの改造・工事不要で導入可能</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin:2.5rem 0 1.5rem">— BEFORE / AFTER</h3>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>導入前</th>
+          <th class="hl">Heat Guard 導入後</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>モーター状態把握</td><td>定期点検時のみ（月次・年次）</td><td class="hl check">24時間365日 常時監視</td></tr>
+        <tr><td>異常検知</td><td>故障してから気づく</td><td class="hl check">兆候段階でアラート</td></tr>
+        <tr><td>振動データ</td><td>測定機器を現場に持ち込み手動計測</td><td class="hl check">センサーが自動収集・蓄積</td></tr>
+        <tr><td>INV停止リスク</td><td>把握手段なし</td><td class="hl check">毎日スコアリングして可視化</td></tr>
+        <tr><td>データ活用</td><td>点検記録が紙・台帳で散在</td><td class="hl check">クラウドで時系列管理・即検索</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <div class="tag" style="border-color:var(--accent2);color:var(--accent2)" >M5STACK CORES3</div>
+      <div class="tag" style="border-color:var(--accent2);color:var(--accent2)">IIS3DWB</div>
+      <div class="tag" style="border-color:var(--accent2);color:var(--accent2)">CONTEC DAQ</div>
+      <div class="tag" style="border-color:var(--accent2);color:var(--accent2)">AWS LAMBDA</div>
+      <div class="tag" style="border-color:var(--accent2);color:var(--accent2)">AWS S3</div>
+      <div class="tag en">FFT ANALYSIS</div>
+      <div class="tag en">EventBridge</div>
+      <div class="tag en">AWS Amplify</div>
+    </div>
+  </div>
+</section>
+
+<!-- HEATPILOT MAIN -->
+<section id="heatpilot" style="background:var(--bg);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="sec-label en">OPTIMAL CONTROL / AUTO OPERATION</div>
+    <div class="svc-hero heatpilot-hero">
+      <div class="heatpilot-tag en">OES ACTIVE</div>
+      <h2 class="heateye-title en">HEAT PILOT</h2>
+      <p class="heateye-sub">熟練技術者の運転ノウハウをAIに移植。<br>既存のPLC・中央監視システムへアドオンで最適運転を実現。<br>大阪エネルギーサービス（OES）第2プラントにて実装中。</p>
+    </div>
+
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin-bottom:1.5rem">— HOW IT WORKS</h3>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num en">01</div>
+        <span class="flow-icon">🧠</span>
+        <div class="flow-name">ノウハウ収集</div>
+        <div class="flow-detail">オペレーターへのヒアリングで増段・減段・デマンド制御ロジックを体系化</div>
+        <div class="flow-arrow">›</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">02</div>
+        <span class="flow-icon">🔌</span>
+        <div class="flow-name">PLC接続</div>
+        <div class="flow-detail">三菱電機PLC・BACnetに接続。冷凍機・ポンプ・冷却塔の運転データを取得</div>
+        <div class="flow-arrow">›</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">03</div>
+        <span class="flow-icon">⚡</span>
+        <div class="flow-name">AI運転判断</div>
+        <div class="flow-detail">熱負荷・氷蓄熱残量・電力デマンドを考慮し、最適な機器構成・設定値を算出</div>
+        <div class="flow-arrow">›</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">04</div>
+        <span class="flow-icon">🎛</span>
+        <div class="flow-name">運転指令出力</div>
+        <div class="flow-detail">既存中央監視システムへ指令。設備を改造せずアドオンで自動化を実現</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin:2.5rem 0 1.5rem">— FEATURES</h3>
+    <div class="feat-grid">
+      <div class="feat-item">
+        <div class="feat-icon en">⊕</div>
+        <div class="feat-name en">ADD-ON MODEL</div>
+        <div class="feat-desc">既存PLCや中央監視に接続するアドオン型。スクラッチ開発不要で既設設備をそのまま活用</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon en">🔗</div>
+        <div class="feat-name en">PLC / BACnet</div>
+        <div class="feat-desc">三菱電機PLC・BACnet対応。複数メーカーの冷凍機・ポンプ・冷却塔を統合管理</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon en">❄</div>
+        <div class="feat-name en">COMPLEX CHILLER</div>
+        <div class="feat-desc">インバータ冷凍機・ターボ冷凍機・ガス吸収式・氷蓄熱を組み合わせた複合系統に対応</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon en">📈</div>
+        <div class="feat-name en">DEMAND CONTROL</div>
+        <div class="feat-desc">電力デマンドピークを考慮した機器台数制御。契約電力超過リスクを自動回避</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon en">🌐</div>
+        <div class="feat-name en">REMOTE MONITOR</div>
+        <div class="feat-desc">遠隔での運転状態確認・ログ確認に対応。現場に常駐せず状態把握が可能</div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon en">📋</div>
+        <div class="feat-name en">KNOW-HOW AI</div>
+        <div class="feat-desc">熟練技術者の暗黙知をヒアリングでロジック化。属人化した運転判断をシステムに移植</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted);margin:2.5rem 0 1.5rem">— BEFORE / AFTER</h3>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>導入前</th>
+          <th class="hl">Heat Pilot 導入後</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>増段・減段判断</td><td>オペレーターが経験則で判断</td><td class="hl check">AIがリアルタイムで最適判断</td></tr>
+        <tr><td>電力デマンド管理</td><td>手動で目視しながら調整</td><td class="hl check">自動でデマンドピーク回避</td></tr>
+        <tr><td>氷蓄熱活用</td><td>担当者の経験で投入タイミング決定</td><td class="hl check">残氷量・熱負荷予測に基づき自動</td></tr>
+        <tr><td>運転ログ</td><td>紙・手書きの運転日誌</td><td class="hl check">デジタル自動記録・遠隔参照可能</td></tr>
+        <tr><td>ノウハウ継承</td><td>属人化・退職リスクあり</td><td class="hl check">ロジックとしてシステムに移植</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <div class="tag accent en">PLC / BACnet</div>
+      <div class="tag accent en">MITSUBISHI PLC</div>
+      <div class="tag accent en">ICE THERMAL</div>
+      <div class="tag en">Turbo Chiller</div>
+      <div class="tag en">Inverter Chiller</div>
+      <div class="tag en">Gas Absorption</div>
+      <div class="tag en">DEMAND CONTROL</div>
+    </div>
+  </div>
+</section>
+
 <!-- ALL SERVICES -->
 <section id="services" style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="container">
     <div class="sec-label en">ALL SERVICES</div>
     <h2 class="sec-title en">HEAT DX LINE-UP</h2>
     <div class="svc-grid">
-      <div class="svc-card">
+      <a href="#heatpilot" class="svc-card" style="text-decoration:none;display:block;cursor:pointer">
         <div class="svc-card-num en">SVC — 01</div>
         <div class="svc-card-name en">HEAT PILOT</div>
         <div class="svc-card-jp">中央監視 自動運転</div>
         <div class="svc-card-desc">既存の中央監視システムにAI自動運転機能をアドオン。PLCと連携し、熱源機の最適制御を自動化。熟練技術者の判断をAIが代替。</div>
-        <div class="svc-card-tag en">PLC / BACnet</div>
-      </div>
-      <div class="svc-card" style="border-left:2px solid var(--accent)">
+        <div class="svc-card-tag en" style="margin-top:1rem">PLC / BACnet &nbsp;›</div>
+      </a>
+      <a href="#heateye" class="svc-card" style="border-left:2px solid var(--accent);text-decoration:none;display:block;cursor:pointer">
         <div class="svc-card-num en">SVC — 02</div>
         <div class="svc-card-name en" style="color:var(--accent)">HEAT EYE</div>
         <div class="svc-card-jp">旬報自動生成</div>
         <div class="svc-card-desc">POEカメラ＋画像AIで点検・記録を完全自動化。旬報・日報をリアルタイム生成。現場の「記録する手間」をゼロにする。</div>
-        <div class="svc-card-tag en" style="border-color:var(--accent);color:var(--accent)">★ FLAGSHIP</div>
-      </div>
-      <div class="svc-card">
+        <div class="svc-card-tag en" style="border-color:var(--accent);color:var(--accent);margin-top:1rem">★ FLAGSHIP &nbsp;›</div>
+      </a>
+      <a href="#heatguard" class="svc-card" style="text-decoration:none;display:block;cursor:pointer">
         <div class="svc-card-num en">SVC — 03</div>
         <div class="svc-card-name en">HEAT GUARD</div>
         <div class="svc-card-jp">CBM 異常予兆検知</div>
         <div class="svc-card-desc">振動・三相電流センサで設備の状態を常時監視。AIが異常予兆を検知し、故障前に保全アクションを促すCBMソリューション。</div>
-        <div class="svc-card-tag en">CONTEC DAQ / CBM</div>
-      </div>
+        <div class="svc-card-tag en" style="margin-top:1rem">CONTEC DAQ / CBM &nbsp;›</div>
+      </a>
     </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section id="company">
+  <div class="container" style="text-align:center">
+    <div class="sec-label en">COMPANY</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;letter-spacing:2px;margin-bottom:0">会社概要</h2>
+    <table class="company-table">
+      <tr><th>会社名</th><td>Future Relations Inc.（フューチャーリレーションズ株式会社）</td></tr>
+      <tr><th>代表取締役</th><td>高橋 真二</td></tr>
+      <tr><th>設立</th><td>2019年12月6日</td></tr>
+      <tr><th>資本金</th><td>1,000万円</td></tr>
+      <tr><th>役員</th><td>代表取締役 1名、取締役 1名</td></tr>
+      <tr><th>人員</th><td>3名（外注含む）</td></tr>
+      <tr><th>所在地</th><td>〒150-0013　東京都渋谷区恵比寿2-28-7</td></tr>
+      <tr><th>メール</th><td>info@f-relations.com</td></tr>
+      <tr><th>URL</th><td>f-relations.com</td></tr>
+    </table>
   </div>
 </section>
 
@@ -305,48 +537,11 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
   <div class="container">
     <div class="sec-label en">CONTACT</div>
     <h2 class="cta-title en">READY TO START?</h2>
-    <p class="cta-sub">導入相談・デモ依頼はフォームよりお気軽にどうぞ。<br>現地調査から最短1週間で稼働可能です。</p>
-    <form class="cta-form" id="contactForm" onsubmit="submitContact(event)">
-      <input type="text" name="name" placeholder="お名前" required>
-      <input type="email" name="email" placeholder="メールアドレス（返信先）" required>
-      <input type="text" name="subject" placeholder="件名" required>
-      <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
-      <button type="submit" class="btn-primary en" style="width:100%;border:none;cursor:pointer" id="submitBtn">お問合せ / CONTACT</button>
-      <p class="cta-form-msg" id="formMsg"></p>
-    </form>
+    <p class="cta-sub">Heat Eye・Heat Guard・Heat Pilotの導入相談・デモ依頼はこちら。<br>現地調査から最短1週間で稼働可能です。</p>
+    <a href="mailto:info@f-relations.com" class="btn-primary en">お問合せ / CONTACT</a>
   </div>
 </section>
-<!-- COMPANY -->
-<section id="company" style="background:var(--bg);border-top:1px solid var(--border)">
-  <div class="container">
-    <div class="sec-label en">COMPANY</div>
-    <h2 class="sec-title en">ABOUT US</h2>
-    <table class="cmp-table">
-      <tbody>
-        <tr>
-          <td style="width:200px;color:var(--muted)">会社名</td>
-          <td>株式会社 Future Relations</td>
-        </tr>
-        <tr>
-          <td style="color:var(--muted)">代表取締役社長</td>
-          <td>高橋真二</td>
-        </tr>
-        <tr>
-          <td style="color:var(--muted)">資本金</td>
-          <td>1,000万円</td>
-        </tr>
-        <tr>
-          <td style="color:var(--muted)">所在地</td>
-          <td>〒150-0013 東京都渋谷区恵比寿2-28-7</td>
-        </tr>
-        <tr>
-          <td style="color:var(--muted)">事業内容</td>
-          <td>熱設備DXサービスの開発・提供（HEAT DXプラットフォーム）</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+
 <footer>
   <div class="en" style="font-size:16px;font-weight:700;letter-spacing:2px;margin-bottom:.5rem;color:var(--accent)">HEAT DX</div>
   <div>Future Relations Inc. — f-relations.com</div>
@@ -382,7 +577,7 @@ const SYSTEM=`あなたはHEAT DXのサポートAIです。以下のサービス
 - Heat Pilot: 中央監視に自動運転機能をアドオン
 - Heat Guard: 振動・電流センサでCBM（予知保全）を提供
 会社: Future Relations（代表：高橋真二）/ f-relations.com
-不明な点は「詳しくはtakahashi@i-rela.comまでお問合せください」と案内してください。`;
+不明な点は「詳しくはお問合せください」と案内してください。`;
 
 async function sendMsg(){
   const inp=document.getElementById('chat-input');
@@ -403,7 +598,7 @@ async function sendMsg(){
   msgs.scrollTop=msgs.scrollHeight;
   
   try{
-    const res=await fetch('https://heat-dx-proxy.takahashi-76e.workers.dev',{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -417,39 +612,9 @@ async function sendMsg(){
     const reply=data.content?.[0]?.text||'エラーが発生しました。';
     botDiv.innerHTML='<span class="en">HEAT DX AI</span>'+reply;
   }catch(e){
-    botDiv.innerHTML='<span class="en">HEAT DX AI</span>'+e.message;
+    botDiv.innerHTML='<span class="en">HEAT DX AI</span>通信エラーが発生しました。';
   }
   msgs.scrollTop=msgs.scrollHeight;
-}
-
-async function submitContact(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  const msg = document.getElementById('formMsg');
-  const form = document.getElementById('contactForm');
-  btn.disabled = true;
-  btn.textContent = '送信中...';
-  msg.className = 'cta-form-msg';
-  msg.textContent = '';
-  const data = Object.fromEntries(new FormData(form));
-  try {
-    const res = await fetch('https://4tes3o6fcl.execute-api.ap-northeast-1.amazonaws.com/prod/contact', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    });
-    const json = await res.json();
-    if (!res.ok) throw new Error(json.error || 'エラーが発生しました');
-    msg.className = 'cta-form-msg ok';
-    msg.textContent = 'お問い合わせを受け付けました。担当者よりご連絡いたします。';
-    form.reset();
-  } catch(err) {
-    msg.className = 'cta-form-msg err';
-    msg.textContent = err.message;
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'お問合せ / CONTACT';
-  }
 }
 </script>
 </body>
