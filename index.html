@@ -103,6 +103,13 @@ section{padding:5rem 2rem}
 #cta{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:5rem 2rem}
 .cta-title{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:700;margin-bottom:1rem}
 .cta-sub{color:var(--muted);margin-bottom:2rem}
+.cta-form{max-width:480px;margin:0 auto;text-align:left}
+.cta-form input,.cta-form textarea{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px 14px;font-size:14px;font-family:'Noto Sans JP',sans-serif;margin-bottom:12px;outline:none;transition:border-color .2s}
+.cta-form input:focus,.cta-form textarea:focus{border-color:var(--accent)}
+.cta-form textarea{height:120px;resize:vertical}
+.cta-form-msg{font-size:13px;margin-top:8px;min-height:20px}
+.cta-form-msg.ok{color:var(--accent)}
+.cta-form-msg.err{color:#ff6b6b}
 
 /* FOOTER */
 footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
@@ -298,8 +305,15 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:12px;border-t
   <div class="container">
     <div class="sec-label en">CONTACT</div>
     <h2 class="cta-title en">READY TO START?</h2>
-    <p class="cta-sub">Heat Eyeの導入相談・デモ依頼はこちら。<br>現地調査から最短1週間で稼働可能です。</p>
-    <a href="mailto:info@f-relations.com" class="btn-primary en">お問合せ / CONTACT</a>
+    <p class="cta-sub">導入相談・デモ依頼はフォームよりお気軽にどうぞ。<br>現地調査から最短1週間で稼働可能です。</p>
+    <form class="cta-form" id="contactForm" onsubmit="submitContact(event)">
+      <input type="text" name="name" placeholder="お名前" required>
+      <input type="email" name="email" placeholder="メールアドレス（返信先）" required>
+      <input type="text" name="subject" placeholder="件名" required>
+      <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+      <button type="submit" class="btn-primary en" style="width:100%;border:none;cursor:pointer" id="submitBtn">お問合せ / CONTACT</button>
+      <p class="cta-form-msg" id="formMsg"></p>
+    </form>
   </div>
 </section>
 <!-- COMPANY -->
@@ -406,6 +420,36 @@ async function sendMsg(){
     botDiv.innerHTML='<span class="en">HEAT DX AI</span>'+e.message;
   }
   msgs.scrollTop=msgs.scrollHeight;
+}
+
+async function submitContact(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const msg = document.getElementById('formMsg');
+  const form = document.getElementById('contactForm');
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+  msg.className = 'cta-form-msg';
+  msg.textContent = '';
+  const data = Object.fromEntries(new FormData(form));
+  try {
+    const res = await fetch('https://4tes3o6fcl.execute-api.ap-northeast-1.amazonaws.com/prod/contact', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error || 'エラーが発生しました');
+    msg.className = 'cta-form-msg ok';
+    msg.textContent = 'お問い合わせを受け付けました。担当者よりご連絡いたします。';
+    form.reset();
+  } catch(err) {
+    msg.className = 'cta-form-msg err';
+    msg.textContent = err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'お問合せ / CONTACT';
+  }
 }
 </script>
 </body>
