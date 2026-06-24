@@ -675,18 +675,13 @@ async function sendMsg(){
   msgs.scrollTop=msgs.scrollHeight;
   
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('https://bhh5wscblg.execute-api.ap-northeast-1.amazonaws.com/prod/chat',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:400,
-        system:SYSTEM,
-        messages:[{role:'user',content:text}]
-      })
+      body:JSON.stringify({message:text})
     });
     const data=await res.json();
-    const reply=data.content?.[0]?.text||'エラーが発生しました。';
+    const reply=data.reply||'エラーが発生しました。';
     botDiv.innerHTML='<span class="en">HEAT DX AI</span>'+reply;
   }catch(e){
     botDiv.innerHTML='<span class="en">HEAT DX AI</span>通信エラーが発生しました。';
