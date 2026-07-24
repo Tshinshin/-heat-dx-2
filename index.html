@@ -208,6 +208,49 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
 .btn-primary{transition:box-shadow .25s,filter .25s}
 .btn-primary:hover{box-shadow:0 0 22px rgba(0,200,160,.45);filter:brightness(1.1)}
 .btn-outline{transition:background .2s,color .2s}
+
+/* ─── STATS STRIP ─── */
+.stats-strip{background:var(--text);padding:2.5rem 2rem}
+.stats-strip .container{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,5vw,60px);font-weight:700;line-height:1;color:var(--accent)}
+.stat-num span{font-size:.42em;opacity:.7;font-weight:300}
+.stat-label{font-size:11px;color:rgba(255,255,255,.45);margin-top:.4rem;letter-spacing:.5px}
+@media(max-width:640px){.stats-strip .container{grid-template-columns:1fr;gap:1.5rem}}
+
+/* ─── HERO SPLIT ─── */
+#hero .container{max-width:1100px}
+.hero-content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+@media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-right{display:none}}
+
+/* ─── DASHBOARD MOCKUP ─── */
+.dashboard-mock{background:#111927;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.28);animation:heroIn .8s .35s ease both}
+.dash-header{background:#0d1520;padding:.6rem 1rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.dash-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18);display:inline-block}
+.dash-title-bar{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2.5px;color:rgba(255,255,255,.22);margin-left:.6rem}
+.dash-body{padding:1rem;display:flex;flex-direction:column;gap:.7rem}
+.dash-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.dash-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:.65rem .85rem;border-radius:5px}
+.dash-card-label{font-size:9px;color:rgba(255,255,255,.32);letter-spacing:1.5px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-bottom:.25rem}
+.dash-card-val{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:#fff;line-height:1.15}
+.dash-card-val.ok{color:#00c896}
+.dash-card-val.warn{color:#f59e0b}
+.dash-bar-wrap{margin-top:.45rem}
+.dash-bar-bg{height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.dash-bar-fill{height:100%;border-radius:2px}
+.dash-bar-fill.green{background:#00c896}
+.dash-bar-fill.blue{background:#3b82f6}
+.dash-chart{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:.65rem .85rem;border-radius:5px}
+.dash-chart-label{font-size:9px;color:rgba(255,255,255,.32);letter-spacing:1.5px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-bottom:.5rem}
+.dash-sparkline{height:40px;display:flex;align-items:flex-end;gap:3px}
+.dash-spark-bar{flex:1;border-radius:2px 2px 0 0}
+.dash-live{display:flex;align-items:center;gap:.45rem;font-size:9px;color:rgba(255,255,255,.22);font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase}
+.dash-live-dot{width:5px;height:5px;border-radius:50%;background:#00c896;animation:badgePulse 1.5s ease-in-out infinite;flex-shrink:0}
+
+/* ─── SVG ICONS ─── */
+.flow-icon{margin-bottom:.5rem;display:flex;justify-content:center;line-height:1}
+.flow-icon svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#heatguard .flow-icon svg{stroke:var(--accent2)}
+.feat-icon svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 </style>
 </head>
 <body>
@@ -229,18 +272,86 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="container hero-content">
-    <div class="hero-badge en">HEAT EQUIPMENT × AI</div>
-    <h1 class="hero-title en">
-      <span class="grad">HEAT DX</span><sup style="font-size:.32em;vertical-align:super;background:linear-gradient(90deg,#009e7e,#0070d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">®</sup>
-      <span class="dim">PLATFORM</span>
-    </h1>
-    <p class="hero-sub">熱設備の運転・監視・保全をAIで完全自動化。<br>現場のデータを資産に変える、新しいDXの形。</p>
-    <div class="hero-btns">
-      <a href="#heateye" class="btn-primary en">HEAT EYE を見る</a>
-      <a href="#services" class="btn-outline en">ALL SERVICES</a>
+    <div class="hero-left">
+      <div class="hero-badge en">HEAT EQUIPMENT × AI</div>
+      <h1 class="hero-title en">
+        <span class="grad">HEAT DX</span><sup style="font-size:.32em;vertical-align:super;background:linear-gradient(90deg,#009e7e,#0070d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">®</sup>
+        <span class="dim">PLATFORM</span>
+      </h1>
+      <p class="hero-sub">熱設備の運転・監視・保全をAIで完全自動化。<br>現場のデータを資産に変える、新しいDXの形。</p>
+      <div class="hero-btns">
+        <a href="#cta" class="btn-primary en" style="font-size:16px;padding:14px 36px">無料デモを依頼する</a>
+        <a href="#services" class="btn-outline en">ALL SERVICES</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="dashboard-mock">
+        <div class="dash-header">
+          <span class="dash-dot"></span><span class="dash-dot"></span><span class="dash-dot"></span>
+          <span class="dash-title-bar">HEAT DX DASHBOARD</span>
+        </div>
+        <div class="dash-body">
+          <div class="dash-row">
+            <div class="dash-card">
+              <div class="dash-card-label">熱源機A 状態</div>
+              <div class="dash-card-val ok">正常稼働</div>
+              <div class="dash-bar-wrap"><div class="dash-bar-bg"><div class="dash-bar-fill green" style="width:92%"></div></div></div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-label">INV リスクスコア</div>
+              <div class="dash-card-val warn">警戒 64</div>
+              <div class="dash-bar-wrap"><div class="dash-bar-bg"><div class="dash-bar-fill blue" style="width:64%"></div></div></div>
+            </div>
+          </div>
+          <div class="dash-chart">
+            <div class="dash-chart-label">振動トレンド — 過去7日</div>
+            <div class="dash-sparkline">
+              <div class="dash-spark-bar" style="height:28%;background:#3b82f6;opacity:.7"></div>
+              <div class="dash-spark-bar" style="height:42%;background:#3b82f6;opacity:.7"></div>
+              <div class="dash-spark-bar" style="height:36%;background:#3b82f6;opacity:.75"></div>
+              <div class="dash-spark-bar" style="height:55%;background:#3b82f6;opacity:.8"></div>
+              <div class="dash-spark-bar" style="height:48%;background:#3b82f6;opacity:.8"></div>
+              <div class="dash-spark-bar" style="height:72%;background:#f59e0b;opacity:.9"></div>
+              <div class="dash-spark-bar" style="height:88%;background:#f59e0b"></div>
+            </div>
+          </div>
+          <div class="dash-row">
+            <div class="dash-card">
+              <div class="dash-card-label">本日の旬報</div>
+              <div class="dash-card-val ok" style="font-size:14px">自動生成 完了</div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-label">未処理アラート</div>
+              <div class="dash-card-val ok">0 <span style="font-size:12px;opacity:.6;font-weight:300">件</span></div>
+            </div>
+          </div>
+          <div class="dash-live">
+            <span class="dash-live-dot"></span>
+            LIVE — 最終更新 2分前
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stat-item">
+      <div class="stat-num en">0<span>分</span></div>
+      <div class="stat-label">旬報作成にかかる時間（AI自動生成）</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num en">1<span>日〜</span></div>
+      <div class="stat-label">最短稼働開始（設置から）</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num en">24<span>/7</span></div>
+      <div class="stat-label">365日 常時監視</div>
+    </div>
+  </div>
+</div>
 
 <!-- HEATEYE MAIN -->
 <section id="heateye" style="background:var(--bg)">
@@ -256,28 +367,28 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
     <div class="flow">
       <div class="flow-step">
         <div class="flow-num en">01</div>
-        <span class="flow-icon">📷</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
         <div class="flow-name">POEカメラ設置</div>
         <div class="flow-detail">既存設備に追加するだけ。配線工事不要</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">02</div>
-        <span class="flow-icon">🤖</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span>
         <div class="flow-name">画像AI認識</div>
         <div class="flow-detail">メーター・状態を自動読み取り</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">03</div>
-        <span class="flow-icon">📊</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
         <div class="flow-name">自動集計</div>
         <div class="flow-detail">クラウドへリアルタイム送信・蓄積</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">04</div>
-        <span class="flow-icon">📄</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
         <div class="flow-name">報告書自動生成</div>
         <div class="flow-detail">旬報・日報をExcel/PDFで自動出力</div>
       </div>
@@ -296,7 +407,7 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
         <div class="feat-desc">設定値逸脱を即時検知。メール・Slack通知で担当者に即アラート</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">📋</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></div>
         <div class="feat-name en">AUTO REPORT</div>
         <div class="feat-desc">旬報・日報・月報を自動生成。天気データ連携、前期比較も自動</div>
       </div>
@@ -306,12 +417,12 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
         <div class="feat-desc">クラウドに安全に蓄積。過去データの遡及・トレンド分析が容易</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">🔄</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
         <div class="feat-name en">REMOTE UPDATE</div>
         <div class="feat-desc">カメラファームウェアをリモート更新。現地作業なしで機能追加</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">💰</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <div class="feat-name en">LOW COST</div>
         <div class="feat-desc">月額サブスクモデル。初期費用を抑え、小規模施設から導入可能</div>
       </div>
@@ -360,28 +471,28 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
     <div class="flow">
       <div class="flow-step">
         <div class="flow-num en">01</div>
-        <span class="flow-icon">📡</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></span>
         <div class="flow-name">センサー取付</div>
         <div class="flow-detail">振動センサー・三相電流センサーをモーターに設置</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">02</div>
-        <span class="flow-icon">⚙️</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
         <div class="flow-name">データ収集</div>
         <div class="flow-detail">振動・三相電流をリアルタイム取得。S3へ自動アップロード</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">03</div>
-        <span class="flow-icon">🤖</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
         <div class="flow-name">クラウド解析</div>
         <div class="flow-detail">クラウドがFFT解析・電流不平衡評価・INV停止リスク判定を毎時実行</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">04</div>
-        <span class="flow-icon">📊</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
         <div class="flow-name">ダッシュボード</div>
         <div class="flow-detail">クラウドダッシュボードで自動更新。振動トレンド・リスクスコアを一画面で確認</div>
       </div>
@@ -405,7 +516,7 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
         <div class="feat-desc">インバータ停止リスクを毎日スコアリング。担当者が判断しやすい形で可視化</div>
       </div>
       <div class="feat-item blue">
-        <div class="feat-icon en">🔄</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
         <div class="feat-name en">HOURLY AUTO</div>
         <div class="feat-desc">EventBridgeで毎時自動実行。人手なしでダッシュボードが常に最新状態を保つ</div>
       </div>
@@ -463,28 +574,28 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
     <div class="flow">
       <div class="flow-step">
         <div class="flow-num en">01</div>
-        <span class="flow-icon">🧠</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
         <div class="flow-name">ノウハウ収集</div>
         <div class="flow-detail">オペレーターへのヒアリングで増段・減段・デマンド制御ロジックを体系化</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">02</div>
-        <span class="flow-icon">🔌</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
         <div class="flow-name">PLC接続</div>
         <div class="flow-detail">三菱電機PLC・BACnetに接続。冷凍機・ポンプ・冷却塔の運転データを取得</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">03</div>
-        <span class="flow-icon">⚡</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
         <div class="flow-name">AI運転判断</div>
         <div class="flow-detail">熱負荷・氷蓄熱残量・電力デマンドを考慮し、最適な機器構成・設定値を算出</div>
         <div class="flow-arrow">›</div>
       </div>
       <div class="flow-step">
         <div class="flow-num en">04</div>
-        <span class="flow-icon">🎛</span>
+        <span class="flow-icon"><svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span>
         <div class="flow-name">運転指令出力</div>
         <div class="flow-detail">既存中央監視システムへ指令。設備を改造せずアドオンで自動化を実現</div>
       </div>
@@ -498,27 +609,27 @@ a.svc-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(0,200,16
         <div class="feat-desc">既存PLCや中央監視に接続するアドオン型。スクラッチ開発不要で既設設備をそのまま活用</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">🔗</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
         <div class="feat-name en">PLC / BACnet</div>
         <div class="feat-desc">三菱電機PLC・BACnet対応。複数メーカーの冷凍機・ポンプ・冷却塔を統合管理</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">❄</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div>
         <div class="feat-name en">COMPLEX CHILLER</div>
         <div class="feat-desc">インバータ冷凍機・ターボ冷凍機・ガス吸収式・氷蓄熱を組み合わせた複合系統に対応</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">📈</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <div class="feat-name en">DEMAND CONTROL</div>
         <div class="feat-desc">電力デマンドピークを考慮した機器台数制御。契約電力超過リスクを自動回避</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">🌐</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <div class="feat-name en">REMOTE MONITOR</div>
         <div class="feat-desc">遠隔での運転状態確認・ログ確認に対応。現場に常駐せず状態把握が可能</div>
       </div>
       <div class="feat-item">
-        <div class="feat-icon en">📋</div>
+        <div class="feat-icon en"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <div class="feat-name en">KNOW-HOW AI</div>
         <div class="feat-desc">熟練技術者の暗黙知をヒアリングでロジック化。属人化した運転判断をシステムに移植</div>
       </div>
